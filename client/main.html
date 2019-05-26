@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <!--This includes the request function to talk to the server-->
+    <script src="request.js"></script>
+    <title>NodePY Example</title>
+</head>
+<body>
+    <h3>Welcome to NodePY. A stupid simple python web framework</h3>
+    <button onclick="testResponse()">Test NodePY</button>
+    <p id="test_result">This should change to the current server side time when you press the above button. </p>
+    <script>
+        function testResponse(){
+            request("serverTime&now");
+        }
+    </script>
+</body>
+</html>

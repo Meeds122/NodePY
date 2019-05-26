@@ -1,0 +1,21 @@
+This framework has 2 parts, a server that serves static content such as apache, lighttpd, or nginx, and a server that serves the active content, the python backend. 
+The function that passes requests from the client to the server is in the requests.js file and needs to be modified to fit your enviroment. 
+The api calls you can define are defined in server/calls/ directory. 
+
+Here is an walkthrough of the workflow
+
+client side:
+onclick event triggers js function which triggers the requests.js->request(call) function. The call variable gets requested from the api server. 
+
+server side:
+server.py->Server() recieves an HTTP request. it strips everything off of it except the call. server.py->Server() then calls api.py->apiCall(call). 
+api.py->apiCall(call) looks in the server/calls/ directory for a python file with the same name as the call function. It then calls that function with the rest of the 
+call passed in as variables. 
+
+
+call definition:
+http://someHost:somePort/functionName&input1&input2
+
+Calls are seperated by the ampersand character. 
+
+
