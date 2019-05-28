@@ -23,7 +23,7 @@ Provide api call service and organization
 
 Programmer Responsibility:
 Define js files for added frontend functionality.
-Defie py files for added backend functionality.
+Define py files for added backend functionality.
 
 I.E all the framework does for you is allow request.js to call python functions as defined in server/calls/. 
 
