@@ -18,4 +18,53 @@ http://someHost:somePort/functionName&input1&input2
 
 Calls are seperated by the ampersand character. 
 
+Framework Responsibility:
+Provide api call service and organization
 
+Programmer Responsibility:
+Define js files for added frontend functionality.
+Defie py files for added backend functionality.
+
+I.E all the framework does for you is allow request.js to call python functions as defined in server/calls/. 
+
+Timeline:
+
+X 1. Get working client side
+
+  2. Start with simple socket
+
+  3. Start with basic interpretation, dissection, and response
+
+  4. Finalize flexible responsiveness
+
+  5. Include option for SSL
+
+  6. Implement queing and cocurrency/thready in server backend
+
+
+Current issues:
+1. Client side XMLHttpRequest in request.js is not returning an actual value. Need to use call back or promise to return response value.  
+
+
+Raw HTTP request example:
+
+GET /serverTime&now HTTP/1.1
+Host: 127.0.0.1:31337
+Connection: keep-alive
+Origin: null
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.157 Safari/537.36
+DNT: 1
+Accept: */*
+Accept-Encoding: gzip, deflate, br
+Accept-Language: en-US,en;q=0.9
+
+
+Raw HTTP response example
+
+HTTP/1.1 200 OK
+Date: Mon, 27 Jul 2009 12:28:53 GMT
+Server: Apache/2.2.14 (Win32)
+Last-Modified: Wed, 22 Jul 2009 19:15:56 GMT
+Content-Length: 88
+Content-Type: text/html
+Connection: Closed
