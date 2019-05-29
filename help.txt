@@ -1,6 +1,8 @@
 Still a work in progress
 
+=========
 CLIENT SIDE
+=========
 
 Very basic page example:
 <!DOCTYPE html>
@@ -38,4 +40,12 @@ function testResponse(){
 }
 
 There are 2 moving componenets to this part. The first is the function defined previously (updatePage). What it does is provide a "call back" to the network request. 
-Essentially, the request function gets started before 
+Essentially, the request function gets started and then the browser just, moves on, to the next line of javascript. What the call back function provides
+is a way for the request function to let the requestor function know that the data is ready, by directly calling that function. The workflow can be diagramed as
+
+1. request(api_call, callBackFunction) -> callBackFunction(server_data)
+2. Whatever the next line of javascript is (can be executed before callBackFunction)
+
+=========
+SERVER SIDE
+==========
