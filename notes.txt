@@ -31,7 +31,7 @@ Timeline:
 
 X 1. Get working client side
 
-  2. Start with simple socket
+X 2. Start with simple socket
 
   3. Start with basic interpretation, dissection, and response
 
@@ -39,11 +39,11 @@ X 1. Get working client side
 
   5. Include option for SSL
 
-  6. Implement queing and cocurrency/thready in server backend
+  6. Implement queing and cocurrency/threading in server backend
 
 
 Current issues:
-1. Client side XMLHttpRequest in request.js is not returning an actual value. Need to use call back or promise to return response value.  
+
 
 
 Raw HTTP request example:

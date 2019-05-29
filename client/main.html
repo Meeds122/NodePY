@@ -12,7 +12,10 @@
     <p id="test_result">This should change to the current server side time when you press the above button. </p>
     <script>
         function testResponse(){
-            document.getElementById("test_result").innerHTML = request("serverTime&now");
+            function updatePage(data){
+                document.getElementById("test_result").innerHTML = data;
+            }
+            request("serverTime&now", updatePage);
         }
     </script>
 </body>
