@@ -39,7 +39,7 @@ function testResponse(){
     request("serverTime&now", updatePage);
 }
 
-There are 2 moving componenets to this part. The first is the function defined previously (updatePage). What it does is provide a "call back" to the network request. 
+There are 2 moving components to this part. The first is the function defined previously (updatePage). What it does is provide a "call back" to the network request. 
 Essentially, the request function gets started and then the browser just, moves on, to the next line of javascript. What the call back function provides
 is a way for the request function to let the requestor function know that the data is ready, by directly calling that function. The workflow can be diagramed as
 
