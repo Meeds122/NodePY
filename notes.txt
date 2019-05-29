@@ -43,7 +43,7 @@ X 2. Start with simple socket
 
 
 Current issues:
-
+1. .replace() in server.py->Server().buildResponse() not actually replacing values
 
 
 Raw HTTP request example:

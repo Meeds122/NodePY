@@ -23,24 +23,4 @@ class Server():
                         ret_data = "ERROR EMPTY REQUEST"
                     else:
                         ret_data = "Test Back"
-                    conn.sendall(self.buildResponse(ret_data).encode())
-    def buildResponse(self, data):
-        basic_response = """
-HTTP/1.1 200 OK
-Date: TIME
-Server: NodePY
-Access-Control-Allow-Origin: *
-Last-Modified: TIME
-Content-Length: CON_LEN
-Content-Type: text/html
-Connection: Closed
-
-DATA
-        """
-        current_time = str(time.strftime("%a, %d %b %Y %H:%M:%S PST"))
-        basic_response.replace("TIME", current_time)
-        basic_response.replace("DATA", str(data))
-        data_len = len(basic_response) - 7 # 7 is the length of the CON_LEN identifier that will be replaced
-        data_len = data_len + len(str(data_len))
-        basic_response.replace("CON_LEN", str(data_len))
-        return basic_response
+                    conn.sendall(api.buildResponse(ret_data).encode())
