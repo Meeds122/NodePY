@@ -11,7 +11,9 @@ Content-Length: CON_LEN
 Content-Type: text/html
 Connection: Closed
 
-R_DATA"""
+R_DATA
+
+"""
     current_time = str(time.strftime("%a, %d %b %Y %H:%M:%S PST"))
     basic_response = basic_response.replace("TIME", current_time)
     basic_response = basic_response.replace("R_DATA", str(data))
