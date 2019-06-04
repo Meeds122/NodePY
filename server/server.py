@@ -1,9 +1,17 @@
 # Standard Library imports
 import socket
 import time
+import sys
 
 # Custom Library imports
 import api
+
+# Testing imports
+sys.path.insert(0, './calls') # Include py files in calls/ 
+import serverTime
+
+# Constants
+REQUEST_SIZE = 1024 # 1kb maximum request size. 
 
 class Server():
     def __init__(self, host, port):
@@ -18,9 +26,9 @@ class Server():
                 conn, addr = s.accept()
                 with conn:
                     print("Connected by", addr)
-                    data = conn.recv(1024)
+                    data = conn.recv(REQUEST_SIZE)
                     if not data:
                         ret_data = "ERROR EMPTY REQUEST"
                     else:
-                        ret_data = "Test Back"
+                        ret_data = serverTime.main(data)
                     conn.sendall(api.buildResponse(ret_data).encode())
