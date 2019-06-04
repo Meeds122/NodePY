@@ -6,12 +6,9 @@ import sys
 # Custom Library imports
 import api
 
-# Testing imports
-sys.path.insert(0, './calls') # Include py files in calls/ 
-import serverTime
-
 # Constants
 REQUEST_SIZE = 1024 # 1kb maximum request size. 
+WAITING_CONNECTIONS = 5 # Number of waiting connections to be handled
 
 class Server():
     def __init__(self, host, port):
@@ -21,7 +18,7 @@ class Server():
     def mainLoop(self):
         with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
             s.bind((self.host, self.port))
-            s.listen(5)
+            s.listen(WAITING_CONNECTIONS)
             while True:
                 conn, addr = s.accept()
                 with conn:
@@ -30,5 +27,7 @@ class Server():
                     if not data:
                         ret_data = "ERROR EMPTY REQUEST"
                     else:
-                        ret_data = serverTime.main(data)
+                        api_call = data.decode('utf-8')
+                        api_call = api_call.split(" ")[1]
+                        ret_data = api.call(api_call)
                     conn.sendall(api.buildResponse(ret_data).encode())

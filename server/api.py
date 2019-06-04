@@ -1,5 +1,24 @@
+# Standard Library imports
 import time
+import sys
 
+# Testing imports
+sys.path.insert(0, './calls') # Include py files in calls/ 
+import serverTime
+
+"""
+call(request):
+    Takes request, calls apropriate function, returns data from function. 
+"""
+def call(request):
+    return "API called + " + str(request) + str(serverTime.main(request))
+
+
+"""
+buildResponse(data):
+    Takes data and appends it to a basic HTTP response.
+    Returns generated response
+"""
 def buildResponse(data):
     basic_response = """
 HTTP/1.1 200 OK
