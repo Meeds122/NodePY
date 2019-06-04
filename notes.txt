@@ -33,7 +33,7 @@ X 1. Get working client side
 
 X 2. Start with simple socket
 
-  3. Start with basic interpretation, dissection, and response
+/ 3. Start with basic interpretation, dissection, and response
 
   4. Finalize flexible responsiveness
 
