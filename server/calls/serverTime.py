@@ -10,7 +10,7 @@ def main(in_list):
     try:
         when = in_list[0]
     except IndexError:
-        when = None
+        when = ""
 
     # Testing
     print(in_list)
