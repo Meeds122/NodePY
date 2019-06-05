@@ -12,7 +12,7 @@ def main(in_list):
     print(in_list)
     print(when)
 
-    if when.lower == 'now':
+    if when.lower() == 'now':
         return "now: " + str(time.asctime( time.localtime(time.time()) ))
     else:
         return str(time.asctime( time.localtime(time.time()) ))
