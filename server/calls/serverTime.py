@@ -12,10 +12,6 @@ def main(in_list):
     except IndexError:
         when = ""
 
-    # Testing
-    print(in_list)
-    print(when)
-
     if when.lower() == 'now':
         return "now: " + str(time.asctime( time.localtime(time.time()) ))
     else:
