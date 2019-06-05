@@ -5,8 +5,12 @@ def main(in_list):
 
     # Values are passed in as a list of arguments i.e. arg1 = [arg1, arg2, etc. ]
     # In this case, we only care about the first value
-
-    when = in_list[0]
+    # We have to handle the case that there are too many arguments or not enough. Your choice as to 
+    # what to do in each scenario
+    try:
+        when = in_list[0]
+    except IndexError:
+        when = None
 
     # Testing
     print(in_list)
