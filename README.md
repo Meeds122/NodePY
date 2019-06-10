@@ -1,4 +1,4 @@
-# NodePY
+# pyAPI
 Basic web framework for non web programmers
 
 *Currently in development*
