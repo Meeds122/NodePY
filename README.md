@@ -13,6 +13,7 @@ How to use:
 What it does:
 1. Provides an API server that translates HTTP requests responses to and from python scripts
 2. Provides a Javascript function to make requests to the API server
+
 In essence, this framework provides the glue between python scripts running on a server and client web browsers.
 
 What it does not do:
