@@ -49,3 +49,11 @@ is a way for the request function to let the requestor function know that the da
 =========
 SERVER SIDE
 ==========
+
+1. Create your API in the calls/ directory. The server will spider that directory on startup and add import those files. 
+2. There are constraints on the python files in the calls directory. They are as follows:
+    a. The file must end with .py and must be python3 compatable. 
+    b. The file must have a main function. This is what is called when the server receives a request for that file. 
+    c. The main function must take a single argument. This will be a list object with strings of the arguments that the server recieved. 
+       This list object may be empty. 
+

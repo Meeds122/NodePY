@@ -1,16 +1,33 @@
 # Standard Library imports
 import time
 import sys
-
-# Testing imports
-sys.path.insert(0, './calls') # Include py files in calls/ 
-import serverTime
+import os
 
 # Globals
 API_CALLS = {} # a dictionary that contains a map of api calls to api functions.
+CALLS_BASE_PATH = "calls/"
 
-# Testing
-API_CALLS['serverTime'] = serverTime.main
+"""
+buildAPICalls():
+	Spiders calls/ directory and imports all of the found python files in the directory and sub directory. 
+    Note: There are too many loops, this could probably be condensed into the single primary loop
+"""
+def buildAPICalls():
+    files_to_import = list()
+    list_of_files = list()
+    for (dirpath, dirnames, filenames) in os.walk(CALLS_BASE_PATH):
+        list_of_files += [os.path.join(dirpath, file) for file in filenames]
+    for pyfile in list_of_files:
+        if pyfile[-2:] == "py":
+            files_to_import.append(pyfile)
+    for to_import in files_to_import:
+        to_import = to_import.replace(".py", "")
+        import_name = to_import.replace("/", ".")
+        try:
+            exec("import " + str(import_name))
+            exec("API_CALLS[to_import[6:]] = " + import_name + ".main")
+        except:
+            print("[!] Failed to import {}".format(to_import))
 
 """
 call(request):
@@ -35,6 +52,7 @@ def call(request):
         f = API_CALLS[api_call[0]]
     except KeyError:
         # Do see if API py file exists. If exists, add, otherwise return BAD REQUEST
+        return "BAD REQUEST"
         pass
     
     return str(f(api_call[1:]))

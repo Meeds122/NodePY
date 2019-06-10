@@ -14,6 +14,8 @@ class Server():
     def __init__(self, host, port):
         self.host = str(host)
         self.port = int(port)
+        # Spider calls/ directory
+        api.buildAPICalls()
         self.mainLoop()
     def mainLoop(self):
         with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
@@ -22,7 +24,7 @@ class Server():
             while True:
                 conn, addr = s.accept()
                 with conn:
-                    print("Connected by", addr)
+                    print("[*] Connected by", addr)
                     data = conn.recv(REQUEST_SIZE)
                     if not data:
                         ret_data = "ERROR EMPTY REQUEST"
