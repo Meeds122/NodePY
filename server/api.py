@@ -67,7 +67,7 @@ def buildResponse(data):
     basic_response = """
 HTTP/1.1 200 OK
 Date: TIME
-Server: NodePY
+Server: pyAPI
 Access-Control-Allow-Origin: *
 Last-Modified: TIME
 Content-Length: CON_LEN

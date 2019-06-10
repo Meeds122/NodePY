@@ -5,16 +5,17 @@ CLIENT SIDE
 =========
 
 Very basic page example:
+
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
     <!--This includes the request function to talk to the server-->
     <script src="request.js"></script>
-    <title>NodePY Example</title>
+    <title>pyAPI Example</title>
 </head>
 <body>
-    <h3>Welcome to NodePY. A stupid simple Python3 web framework</h3>
+    <h3>Welcome to pyAPI. A stupid simple Python3 web API framework</h3>
     <button onclick="testResponse()">Test NodePY</button>
     <p id="test_result">This should change to the current server side time when you press the above button. </p>
     <script>
@@ -27,7 +28,6 @@ Very basic page example:
     </script>
 </body>
 </html>
-
 
 Couple of things to watch out for as a new web programmer. The syntax of the <script> block is a bit odd. This is due to 
 javascript's asyncronous nature, as it, it will happily move on even if a function call has not completed. This is best handled as shown below
@@ -46,6 +46,16 @@ is a way for the request function to let the requestor function know that the da
 1. request(api_call, callBackFunction) -> callBackFunction(server_data)
 2. Whatever the next line of javascript is (can be executed before callBackFunction)
 
+Calling other server API objects
+
+examples:
+1. "someRequest&some_data&some_other_data"
+    Will call calls/someRequest.py -> main(["some_data", "some_other_data"])
+2. "dudebroapi/itsJustAPrankBro"
+    Will call calls/dudebroapi/itsJustAPrankBro.py -> main([])
+
+As shown above, the API calls function by mirroring the directory and file names and structure under the calls/ directory. 
+
 =========
 SERVER SIDE
 ==========
@@ -56,4 +66,9 @@ SERVER SIDE
     b. The file must have a main function. This is what is called when the server receives a request for that file. 
     c. The main function must take a single argument. This will be a list object with strings of the arguments that the server recieved. 
        This list object may be empty. 
+
+Here is an example call file:
+
+def main(in_var):
+    return "It worked!"
 
