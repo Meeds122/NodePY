@@ -1,0 +1,3 @@
+# Config parser ignores lines starting with a pound symbol
+ip=127.0.0.1
+port=31337
