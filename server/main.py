@@ -1,12 +1,18 @@
 
+"""
+  This Source Code Form is subject to the terms of the Mozilla Public
+  License, v. 2.0. If a copy of the MPL was not distributed with this
+  file, You can obtain one at http://mozilla.org/MPL/2.0/.
+"""
+
 import server
 
-"""
-getConfig(file_name):
-    Reads in file_name, parses for keyword, returns dict of results. 
-    Example output: {"ip":"0.0.0.0", "port":"31337"}
-"""
 def getConfig(config_file_name):
+    """
+    getConfig(file_name):
+        Reads in file_name, parses for keyword, returns dict of results. 
+        Example output: {"ip":"0.0.0.0", "port":"31337"}
+    """
     out_dict = {}
     with open(config_file_name, 'r') as config_file:
         for line in config_file.readlines():
